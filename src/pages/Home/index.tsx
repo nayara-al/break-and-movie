@@ -17,7 +17,6 @@ export default function Home() {
       const resp = await api.get(
         `/trending/${type}/day?api_key=${apiKey}&media_type=movie`
       );
-      console.log(21, resp.data.results);
 
       setMovieData(resp.data.results);
     } catch (e) {
@@ -47,12 +46,16 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-wrap gap-6 justify-center items-center">
           {movieData.map((item) => (
-            <Component.Movie.MovieBox>
+            <Component.Movie.MovieBox key={item.id}>
               <Component.Movie.Image
                 src_path={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
               />
               <div className="movie_name">
-                {item.original_title ? item.original_title : item.original_name}
+                <Component.Movie.LinkButton link_path={`/movie/${item.id}`}>
+                  {item.original_title
+                    ? item.original_title
+                    : item.original_name}
+                </Component.Movie.LinkButton>
               </div>
             </Component.Movie.MovieBox>
           ))}

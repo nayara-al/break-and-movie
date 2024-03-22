@@ -1,3 +1,5 @@
-import Home from "./Home/Home";
+import Home from "./Home";
+import Search from "./Search";
+import Movie from "./Movie";
 
-export { Home };
+export { Home, Search, Movie };
