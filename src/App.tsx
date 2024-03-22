@@ -4,7 +4,7 @@ import { Routes } from "./routes";
 function App() {
   return (
     <BrowserRouter>
-      <Components.Header />
+      <Components.Header/>
       <Components.StructurePage>
         <Routes />
       </Components.StructurePage>
