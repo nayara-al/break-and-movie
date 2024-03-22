@@ -11,7 +11,6 @@ export default function Movie() {
   async function getMovie(movieUrl: string) {
     try {
       const resp = await api.get(`${movieUrl}`);
-      console.log(resp);
       setMovie(resp.data);
     } catch (e) {
       console.log(e);
@@ -19,7 +18,6 @@ export default function Movie() {
   }
 
   const formatCurrency = (value: number) => {
-    //const nmb = Number(value);
     return value.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",

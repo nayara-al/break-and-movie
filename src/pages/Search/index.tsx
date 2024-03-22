@@ -19,7 +19,6 @@ export default function Search() {
       const resp = await api.get(
         `${url}?api_key=${import.meta.env.VITE_API_KEY}&query=${query}`
       );
-      console.log(21, resp.data.results);
 
       setMoviesData(resp.data.results);
     } catch (e) {
@@ -39,7 +38,7 @@ export default function Search() {
       </h2>
       <div className="w-full flex flex-wrap gap-6 justify-center items-center">
         {movieData.map((item) => (
-          <Component.Movie.MovieBox>
+          <Component.Movie.MovieBox key={item.id}>
             <Component.Movie.Image
               src_path={`https://image.tmdb.org/t/p/w300/${item.poster_path}`}
             />
